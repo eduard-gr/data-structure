@@ -7,10 +7,10 @@ namespace DataStructure;
 class Node
 {
 	public int $index;
-	public mixed $data;
+	public mixed $data = null;
 
-	public ?Node $left;
-	public ?Node $right;
+	public ?Node $left = null;
+	public ?Node $right = null;
 
 	public function __construct(int $index, $data)
 	{
