@@ -35,7 +35,7 @@ class BinaryTree{
 	public function insert(
 		int $index,
 		mixed $data,
-		callable $merge
+		?callable $merge
 	):void
 	{
 		$node = $this->root;
@@ -63,7 +63,11 @@ class BinaryTree{
                     return;
 				}
 			} else {
-                $node->data = $merge($node->data, $data);
+
+                $node->data = $merge
+					? $merge($node->data, $data)
+					: $data;
+
 				return;
 			}
 		}

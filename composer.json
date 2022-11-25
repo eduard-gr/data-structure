@@ -3,7 +3,8 @@
 	"description": "Library with different kinds of data structures",
 	"type": "library",
 	"require": {
-		"php": ">=8.0"
+		"php": ">=8.0",
+		"ext-ds": "*"
 	},
 	"autoload": {
 		"psr-4": {
