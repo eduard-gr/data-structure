@@ -35,7 +35,7 @@ class BinaryTree{
 	public function insert(
 		int $index,
 		mixed $data,
-		?callable $merge
+		?callable $merge = null
 	):void
 	{
 		$node = $this->root;
@@ -81,6 +81,10 @@ class BinaryTree{
 	public function getRoot(): ?Node
 	{
 		return $this->root;
+	}
+
+	public function isEmpty(): bool{
+		return $this->root == null;
 	}
 
 }
