@@ -19,20 +19,20 @@ class AscendingReader implements IteratorAggregate
 		$this->root = $root;
 	}
 
-	public function getIterator():Generator
-	{
-		function dive(Node $node):mixed{
-			if ($node->left) {
-				yield from dive($node->left);
-			}
-
-			yield $node->index => $node->data;
-
-			if ($node->right) {
-				yield from dive($node->right);
-			}
+	private function traversal(Node $node):mixed{
+		if ($node->left) {
+			yield from $this->traversal($node->left);
 		}
 
-		yield from dive($this->root);
+		yield $node->index => $node->data;
+
+		if ($node->right) {
+			yield from $this->traversal($node->right);
+		}
+	}
+
+	public function getIterator():Generator
+	{
+		yield from $this->traversal($this->root);
 	}
 }
